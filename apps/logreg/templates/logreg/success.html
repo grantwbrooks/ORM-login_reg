@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login and Registration Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+        <style>
+            .error{
+                color: red;
+                background-color: yellow;
+            }
+            .blank{
+                color: blue;
+            }
+            .password{
+                color: purple;
+            }
+            .good{
+                color: green;
+            }
+        
+        </style>
+    </head>
+    <body>
+
+    <h2>Success! Welcome, {{ loggedin_user.first_name }} </h2>    
+
+        <!-- This shows the error messages -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    <a href="{% url 'logout' %}"><button type="button">Log Out</button></a>
+
+    </body>
+</html>
